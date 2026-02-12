@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A test for my LOVE</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f7a8a1;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .card {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            width: 350px;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        h4 {
+            color: #ff4d6d;
+            font-weight: 500;
+        }
+
+        h2 {
+            color: #d86a7a;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 14px;
+            color: #444;
+        }
+
+        button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        #noBtn {
+            position: absolute;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        img {
+            width: 150px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+    <img src="https://www.shutterstock.com/image-photo/girl-sitting-on-knee-flowers-260nw-2577554317.jpg">
+    <h4>I already know the answer, but I still want to hear it from you!</h4>
+    <h2>Hey Mani, Will You Be My Valentine?</h2>
+
+    <button onclick="showLovePage()">Yes ❤️</button>
+    <button id="noBtn">No 💔</button>
+
+    <p>Don't waste your time to follow the No 😉</p>
+</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", function () {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+function showLovePage() {
+    document.body.innerHTML = `
+    <style>
+        body{
+            margin:0;
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background-color:#f7a8a1;
+            font-family:'Segoe UI',sans-serif;
+            overflow:hidden;
+        }
+
+        .card2{
+            background:white;
+            padding:40px;
+            border-radius:15px;
+            text-align:center;
+            width:380px;
+            box-shadow:0px 10px 25px rgba(0,0,0,0.15);
+        }
+
+        h1{
+            font-size:28px;
+            color:#333;
+        }
+
+        h2{
+            color:#c94f7c;
+            font-weight:500;
+        }
+
+        .btn2{
+            background:#ff7f9c;
+            color:white;
+            border:none;
+            padding:12px 25px;
+            border-radius:8px;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        .confetti{
+            position:fixed;
+            width:10px;
+            height:10px;
+            background:red;
+            top:-10px;
+            animation:fall 4s linear infinite;
+        }
+
+        @keyframes fall{
+            to{
+                transform:translateY(100vh) rotate(360deg);
+            }
+        }
+    </style>
+
+    <div class="card2">
+        <img src="https://cdn.vectorstock.com/i/1000v/97/50/cartoon-boy-and-girl-kissing-vector-5119750.jpg" width="120">
+        <h1>Yaaahhh! Be my forever valentine!</h1>
+        <h2>I want to show you some special moments of us ❤️</h2>
+        <br>
+        <button class="btn2" onclick="showMoments()">See the moments</button>
+    </div>
+    `;
+
+    for(let i=0;i<40;i++){
+        let confetti=document.createElement("div");
+        confetti.classList.add("confetti");
+        confetti.style.left=Math.random()*100+"vw";
+        confetti.style.backgroundColor=
+            ["red","yellow","blue","pink","green"][Math.floor(Math.random()*5)];
+        confetti.style.animationDuration=(Math.random()*3+2)+"s";
+        document.body.appendChild(confetti);
+    }
+}
+function showMoments() {
+
+    let images = [
+        "images/img1.jpg.jpg",
+        "images/img2.jpg.jpg",
+        "images/img3.jpg.jpg",
+        "images/img4.jpg.jpg",
+        "images/img5.jpg.jpg",
+        "images/img6.jpg.jpg",
+        "images/img7.jpg.jpg",
+        "images/img8.jpg.jpg",
+        "images/img9.jpg.jpg",
+        "images/img10.jpg.jpg",
+        "images/img11.jpg.jpg",
+        "images/img12.jpg.jpeg",
+        "images/img13.jpg.jpg",
+        "images/img14.jpg.jpg"
+    ];
+
+    let captions = [
+       "Our first meet 💖✨",
+    "Our life together starts here 🌸💑",
+    "A moment I will never forget — our first ride 🏍️💕",
+    "Two hearts, one bike, infinite memories 💑🏍️💞",
+    "Proof that we're too cute together 😍💖",
+    "Our first kiss 💋❤️‍🔥",
+    "Two bodies, one soul, one heart 💞🫶",
+    "Together is my favourite place 🥰",
+    "Our warmest hug 🤗💗",
+    "Infinite memories together 🥰📸",
+    "My favorite picture of us 💓📷",
+    "My favourite place is beside you 💖",
+    "From this 🌱💕",
+    "To this 💍👩‍❤️‍👨✨"
+    ];
+
+    let currentIndex = 0;
+
+    document.body.innerHTML = `
+        <div style="
+            height:100vh;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            
+        ">
+            <img id="momentImage"
+                src="${images[0]}"
+                style="
+    width:80%;
+    height:50%;
+    border-radius:20px;
+    cursor:pointer;
+    box-shadow:0 0 30px pink;
+    transition:0.5s;
+">
+            <p id="captionText"
+                style="
+                    color:white;
+                    margin-top:20px;
+                    font-size:20px;
+                ">
+                ${captions[0]}
+            </p>
+
+            <audio id="bgMusic" loop>
+                <source src="love.mp3.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    `;
+
+    const img = document.getElementById("momentImage");
+    const caption = document.getElementById("captionText");
+    const music = document.getElementById("bgMusic");
+
+    // Play music (browser safe)
+    music.play().catch(() => {
+        document.body.addEventListener("click", function(){
+            music.play();
+        }, { once: true });
+    });
+
+    img.addEventListener("click", function() {
+
+        currentIndex++;
+
+        if(currentIndex < images.length){
+
+            img.style.opacity = 0;
+            caption.style.opacity = 0;
+
+            setTimeout(() => {
+                img.src = images[currentIndex];
+                caption.innerText = captions[currentIndex];
+                img.style.opacity = 1;
+                caption.style.opacity = 1;
+            }, 400);
+
+        } else {
+
+            document.body.innerHTML = `
+                <div style="
+                    height:100vh;
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;
+                    background:black;
+                    color:white;
+                    font-size:30px;
+                    text-align:center;
+                ">
+                    ❤️ Thank you so much for giving me lots of memories❤️
+                </div>
+            `;
+        }
+    });
+}
+
+
+
+</script>
+
+</body>
+</html>
